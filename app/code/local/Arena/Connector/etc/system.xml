@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <arena_pl translate="label" module="arena_connector">
+            <label>Arena.pl</label>
+            <sort_order>100</sort_order>
+        </arena_pl>
+    </tabs>
+    <sections>
+        <arena_api translate="label" module="arena_connector">
+            <label>Arena.pl API</label>
+            <tab>arena_pl</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>0</show_in_default>
+            <show_in_website>0</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <arena_api_credentials translate="label">
+                    <label>Credentials</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>0</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <api_login translate="label">
+                            <label>Store login</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </api_login>
+                        <api_key translate="label">
+                            <label>API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </api_key>
+                        <api_endpoint translate="label">
+                            <label>API Endpoint</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-url</validate>
+                        </api_endpoint>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>radios</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                    </fields>
+                </arena_api_credentials>
+                <arena_api_config>
+                    <label>Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>101</sort_order>
+                    <show_in_default>0</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <category_nodes_to_skip translate="label">
+                            <label>Number of category nodes to skip</label>
+                            <comment>ex.: if you want to skip "Default category" from path "Default Category" -> "Clothes" -> "Lingerie" value should be 1</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category_nodes_to_skip>
+                        <qty_when_in_stock_but_0 translate="label">
+                            <label>Fake Quantity</label>
+                            <comment>If product has qty lower or equal 0 but it is "in stock" how many stock qty should be pushed to arena.pl? (0 mean out of stock)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </qty_when_in_stock_but_0>
+                    </fields>
+                </arena_api_config>
+            </groups>
+        </arena_api>
+    </sections>
+</config>
