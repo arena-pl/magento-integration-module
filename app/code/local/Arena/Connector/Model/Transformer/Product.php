@@ -27,6 +27,10 @@ class Arena_Connector_Model_Transformer_Product extends Arena_Connector_Model_Tr
             }
             $attributes[] = array('name' => $data['name'], 'value' => $value);
         }
+
+        $statusTransport = Mage::getSingleton('arena_connector/transformer_status')->transform($model);
+        $status = $statusTransport['product_status'];
+
         return array(
             'product' => array(
                 'id' => $model->getId(),
@@ -40,7 +44,9 @@ class Arena_Connector_Model_Transformer_Product extends Arena_Connector_Model_Tr
                 'price' => (int) bcmul($model->getPrice(), 100),
                 'shippingMethodBoundary' => '',
                 'attributes' => $attributes,
-                'forceMove' => '1'
+                'forceMove' => '1',
+                'quantity' => $status['quantity'],
+                'availability' => $status['availability']
             ),
         );
     }

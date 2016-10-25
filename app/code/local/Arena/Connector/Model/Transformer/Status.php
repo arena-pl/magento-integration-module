@@ -33,11 +33,14 @@ class Arena_Connector_Model_Transformer_Status extends Arena_Connector_Model_Tra
             $qty = (int) Mage::getStoreConfig('arena_api/arena_api_config/qty_when_in_stock_but_0', $model->getStoreId());
         }
 
+        $price = (int) bcmul($model->getPrice(), 100);
+
         return array(
             'product_status' => array(
                 'id' => $model->getId(),
                 'quantity' => $qty,
                 'availability' => $avail,
+                'price' => $price
             ),
         );
     }

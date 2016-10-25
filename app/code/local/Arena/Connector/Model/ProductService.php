@@ -37,7 +37,6 @@ class Arena_Connector_Model_ProductService
 
         $this->pushAttributeGroup($product);
         $this->pushProduct($product);
-        $this->pushStatus($product);
         $this->pushPictures($product);
 
         return true;

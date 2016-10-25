@@ -23,7 +23,6 @@ class Arena_Connector_Adminhtml_ShippingController extends Mage_Adminhtml_Contro
                 if ($methods->getStatus() == 200) {
                     $data = json_decode($methods->getBody(), true);
                     foreach ($data as $shippingMethod) {
-                        //var_dump($shippingMethod);
                         foreach ($shippingMethod['boundaries'] as $boundary) {
                             /**
                              * @var $shippingsCollection Arena_Connector_Model_Mysql4_Shipping_Collection
@@ -75,7 +74,7 @@ class Arena_Connector_Adminhtml_ShippingController extends Mage_Adminhtml_Contro
                         $found = false;
                         foreach ($data as $sm) {
                             foreach ($sm['boundaries'] as $boundary) {
-                                if ($boundary['id'] === $shipping->getArenaId()) {
+                                if ($boundary['id'] == $shipping->getArenaId()) {
                                     $found = true;
                                 }
                             }
